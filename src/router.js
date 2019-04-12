@@ -9,18 +9,11 @@ import searchTabbar from './components/tabbar/search.vue'
 // 3. 创建路由对象
 var router = new VueRouter({
   routes: [//配置路由规则
-    {path: '/home',
-    component: homeTabbar
-  },
-  {path: '/member',
-  component: memberTabbar
-  },
-  {path: '/shoppingcart',
-  component: cartTabbar
-  },
-  {path: '/search',
-  component: searchTabbar
-  }
+    {path:'/',redirect:'/home'},
+    {path: '/home',component: homeTabbar},
+    {path: '/member',component: memberTabbar},
+    {path: '/shoppingcart',component: cartTabbar},
+    {path: '/search',component: searchTabbar}
   ],
   linkExactActiveClass:'mui-active'  //覆盖默认路由高亮的类（‘class’）
 })
