@@ -2,18 +2,18 @@
   <div>
     <!-- 轮播图 -->
     <mt-swipe :auto="4000">
-      <mt-swipe-item v-for="item in imgs">
-        <img :src="item.cdn_img" :alt="item.name">
+      <mt-swipe-item v-for="(item,index) in imgs">
+        <img :src="item.img_src" :alt="item.img_name" :key="item.id">
       </mt-swipe-item>
     </mt-swipe>
 
     <!-- 六宫格 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4">
-        <a href="#">
+        <router-link to="/home/newList">
           <img src="../../images/menu1.png">
           <div class="mui-media-body">新闻资讯</div>
-        </a>
+        </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4">
         <a href="#">
@@ -58,11 +58,11 @@ export default {
   },
   created() {
     this.$axios
-      .get("https://www.apiopen.top/satinApi?type=1&page=1")
+      .get("https://wd7397433882arhwgr.wilddogio.com/banner.json")
       .then(res => {
         // this.imgs=res.data.cdn_img
-        console.log(res.data);
-        this.imgs = res.data.data.splice(0, 8);
+        // console.log(res.data);
+        this.imgs = res.data;
       });
   },
   methods: {}
