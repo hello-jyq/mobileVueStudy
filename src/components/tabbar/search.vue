@@ -18,7 +18,7 @@
       </div>
       <label>作者：</label>
       <select v-model="blog.author">
-        <option v-for="author in authors">{{author}}</option>
+        <option v-for="(author,index) in authors" :key='index'>{{author}}</option>
       </select>
       <button v-on:click.prevent="post">添加</button>
     </form>
@@ -30,7 +30,7 @@
       <p>内容：{{blog.content}}</p>
       <p>分类：</p>
       <ul>
-        <li v-for="check in blog.checks">{{check}}</li>
+        <li v-for="(check,index) in blog.checks" :key='index'>{{check}}</li>
       </ul>
       <p>作者：{{blog.author}}</p>
     </div>

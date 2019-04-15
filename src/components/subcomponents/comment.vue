@@ -5,7 +5,7 @@
     <textarea placeholder="请输入要评论的内容（最多BB120个字）" v-model="content"></textarea>
     <mt-button type="primary" size="large" v-on="posComment">发表评论</mt-button>
     <div class="cmt-list">
-      <div class="cmt-item" v-for="(item,index) in comments">
+      <div class="cmt-item" v-for="(item,index) in comments" :key="index">
         <div
           class="cmt-title"
         >第{{index+1}}楼&nbsp;&nbsp;用户：{{item.username}}&nbsp;&nbsp;发表时间：{{item.time}}</div>
