@@ -12,7 +12,9 @@
 1. git add .
 2. git commit -m '提交的注释'
 3. git push
+4. node-sass   依赖安装失败   先  npm uninstall node-sass  删除  再  npm install node-sass 重新安装
 
+ 
 ##制作首页 App 组件
 
 1. 完成 Headder 区域，使用的是 Mint-UI 中的 Header 组件
@@ -25,7 +27,8 @@
 
 ## 点击 tabbar 显示对应的路由组件
 
-##加载首页轮播图数据
+##加载首页轮播图数据   安装$axios
+  npm install axios
 
 1. 获取数据。使用 axios
 2. 使用 axios 的 this.\$axios.get 获取数据
