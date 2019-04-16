@@ -18,7 +18,7 @@
       <li class="mui-table-view-cell mui-media mui-col-xs-4">
         <router-link to="home/photolist">
           <img src="../../images/menu2.png">
-          <div class="mui-media-body">图片分享</div>
+          <div class="mui-media-body">每日一笑</div>
         </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4">
