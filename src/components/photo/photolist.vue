@@ -11,13 +11,14 @@
             :class="['mui-control-item',index===0?'mui-active':'']"
             v-for="(item,index) in tabs"
             @click="getType(item.type)"
+            :key="index"
           >{{item.title}}</a>
         </div>
       </div>
     </div>
     <!-- 图片列表 -->
     <ul>
-      <li v-if="type==1" v-for="item in list" :key="item.soureid" style="background-color: #ccc;">
+      <li :v-if="type==1" v-for="item in list" :key="item.soureid" style="background-color: #ccc;">
         <div v-if="item.type=='text'">
           <h3>{{item.top_commentsContent}}</h3>
           <p>{{item.text}}</p>
@@ -32,17 +33,17 @@
           <video :src="item.video" controls="controls">您的浏览器不支持 video 标签。</video>
         </div>
       </li>
-      <li v-if="type==2" v-for="item in list" :key="item.soureid">
+      <li :v-if="type==2" v-for="item in list" :key="item.up">
         <h3>{{item.top_commentsContent}}</h3>
         <p>{{item.text}}</p>
       </li>
-      <li v-if="type==3" v-for="item in list" :key="item.soureid" style="background-color: #ccc;">
+      <li :v-if="type==3" v-for="item in list" :key="item.top_commentsName" style="background-color: #ccc;">
         <img v-lazy="item.thumbnail">
       </li>
-      <li v-if="type==4" v-for="item in list" :key="item.soureid" style="background-color: #ccc;">
+      <li :v-if="type==4" v-for="item in list" :key="item.passtime" style="background-color: #ccc;">
         <img v-lazy="item.gif">
       </li>
-      <li v-if="type==5" v-for="item in list" :key="item.soureid">
+      <li :v-if="type==5" v-for="item in list" :key="item.down">
         <video :src="item.video" controls="controls">您的浏览器不支持 video 标签。</video>
       </li>
     </ul>
@@ -83,6 +84,7 @@ export default {
       this.$axios
         .get("https://www.apiopen.top/satinGodApi?type=" + type + "&page=1")
         .then(res => {
+          
           this.list = res.data.data.splice(0, 8);
         });
     }
