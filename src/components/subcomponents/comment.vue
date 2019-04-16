@@ -3,49 +3,54 @@
     <h2>发表评论</h2>
     <hr>
     <textarea placeholder="请输入要评论的内容（最多BB120个字）" v-model="content"></textarea>
-    <mt-button type="primary" size="large" v-on="posComment">发表评论</mt-button>
+    <mt-button type="primary" size="large" v-on:click="posComment()">发表评论</mt-button>
     <div class="cmt-list">
-      <div class="cmt-item" v-for="(item,index) in comments" :key="index">
+      <div class="cmt-item" v-for="(item, key, index) in comments" :key="index">
         <div
           class="cmt-title"
         >第{{index+1}}楼&nbsp;&nbsp;用户：{{item.username}}&nbsp;&nbsp;发表时间：{{item.time}}</div>
         <div class="cmt-body">{{item.content=''?'暂无评论':item.content}}</div>
       </div>
     </div>
-    <mt-button type="danger" size="large" plain>加载更多</mt-button>
   </div>
 </template>
 
 <script>
+import { Toast } from "mint-ui";
 export default {
   data() {
     return {
-      pageindex: 1,
       comments: [],
       content: ""
     };
   },
   props: ["id"],
   created() {
-    this.$axios
-      .get("https://wd7397433882arhwgr.wilddogio.com/.json")
-      .then(res => {
-        // console.log(res.data);
-        this.comments = res.data;
-      });
+    this.getPos();
   },
   methods: {
+    getPos() {
+      this.$axios
+        .get("https://wd7397433882arhwgr.wilddogio.com/poscomment.json")
+        .then(res => {
+          this.comments = res.data;
+          console.log(res);
+        });
+    },
     posComment() {
       //发表评论
-      this.$axios.post(
-        "https://wd7397433882arhwgr.wilddogio.com/poscomment.json",
-        {
+      this.$axios
+        .post("https://wd7397433882arhwgr.wilddogio.com/poscomment.json", {
           ID: this.id,
-          username: "",
-          time: new data(),
+          username: "张三",
+          time: Date.now(),
           content: this.content
-        }
-      );
+        })
+        .then(res => {
+          Toast("发表成功");
+          this.content = "";
+          this.getPos();
+        });
     }
   }
 };

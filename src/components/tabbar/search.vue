@@ -18,7 +18,7 @@
       </div>
       <label>作者：</label>
       <select v-model="blog.author">
-        <option v-for="(author,index) in authors" :key='index'>{{author}}</option>
+        <option v-for="(author,index) in authors" :key="index">{{author}}</option>
       </select>
       <button v-on:click.prevent="post">添加</button>
     </form>
@@ -30,7 +30,7 @@
       <p>内容：{{blog.content}}</p>
       <p>分类：</p>
       <ul>
-        <li v-for="(check,index) in blog.checks" :key='index'>{{check}}</li>
+        <li v-for="(check,index) in blog.checks" :key="index">{{check}}</li>
       </ul>
       <p>作者：{{blog.author}}</p>
     </div>
@@ -57,16 +57,14 @@ export default {
       this.$axios
         .post("https://wd7397433882arhwgr.wilddogio.com/news.json", {
           img_src:
-            "https://bos.nj.bpc.baidu.com/v1/mediaspot/eef289711329f4696a4a623047d620a6.jpeg",
+            "https://timg01.bdimg.com/timg?pacompress=&imgtype=0&sec=1439619614&di=072a73a378a60fc38013abd56924b486&quality=90&size=b870_10000&src=http%3A%2F%2Fpic.rmb.bdstatic.com%2Fc71104ba43468e73fe4f63b1ebb032b3.jpeg",
           title: "暴力隔扣+关键抢断 季后赛首战小白又成马刺奇兵",
-          id: 12,
-          star: 3,
+          id: 13,
+          star: 32,
           con:
-            "北京时间今天，马刺队以101比96力克掘金，在丹佛的魔鬼主场百事中心完成了以下克上。此役，马刺之所以能够斩获胜利，与一种年轻人的表现分不开关系。其中，在后卫线面临大规模伤病情况下临危受命的怀特，更是大放异彩。全场比赛，他出战28分钟，10投7中高效得到16分3板5助攻，更是在最后一刻完成了对穆雷的抢断，锁定胜局。" +
-            "“我就是努力做好防守，在最后时刻找到了抢断的机会。毫无疑问，对于我们而言，这是一场至关重要的胜利，这是一场48分钟的战斗。我们知道这场比赛将非常艰难，我们需要在客场对阵一支非常出色的球队，很高兴能够拿下系列赛首战。”" +
-            '<img src="http://pics1.baidu.com/feed/b21c8701a18b87d6ce1a2d28c995833c1e30fdd4.jpeg?token=dc9758f2bcdd73958794a4b4dc6a4d67&s=2D724982C2A280FD92DDE09B0300F091">' +
-            "另一位年轻后卫福布斯出场30分钟，三分线外4投3中，得到15分5个篮板的数据。“我们都是竞争者，踏上赛场努力竞争。布林的表现很棒，他命中了一些关键三分。很高兴我们拿下了胜利，我们会总结比赛继续进步。”怀特说道。" +
-            "从单臂隔扣米尔萨普到最后一个回合抢断穆雷锁定胜局，年轻的怀特不仅为老辣的马刺带来了年轻的激情，也贯彻了波波维奇最在意的防守意识和拼搏精神。而对于马刺来说，这种球队文化的传承就是这支球队在完成新老交替时，最渴望看到的特质。",
+            '<img src="https://pics7.baidu.com/feed/d000baa1cd11728b44a09ed038256fcac1fd2c94.jpeg?token=02a9f88b0ea160de5c86fb0234380201&s=45409A4682C604FE4F8AA5B90300C012">' +
+            "4月15日，李易峰在微博官宣签约新公司，表示：“欲穷千里目，更上一层楼。”工作室也转发该消息：“乘峰破浪，易往无前，未来让我们一起继续放肆生长！”" +
+            "粉丝纷纷表示：“大事发生！”“未来可期！”“祝更上一层楼！”",
           posttime: new Date()
         })
         .then(res => {

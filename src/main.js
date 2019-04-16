@@ -6,6 +6,13 @@ import VueRouter from "vue-router";
 //安装路由
 Vue.use(VueRouter);
 
+//导入 时间插件 moment
+import moment from "moment";
+//自定义时间格式
+Vue.filter("dateString", function(dataStr, pattern = "YYYY-MM-DD HH:mm:ss") {
+  return moment(dataStr).format(pattern);
+});
+
 //安装axios
 import axios from "axios";
 Vue.prototype.$axios = axios;
