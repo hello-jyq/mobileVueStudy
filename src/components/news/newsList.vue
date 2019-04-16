@@ -14,24 +14,10 @@
     </li>
   </ul>
 </template>
-n
-<script>
-export default {
-  data() {
-    return {
-      newslist: []
-    };
-  },
-  created() {
-    this.$axios
-      .get("https://wd7397433882arhwgr.wilddogio.com/news.json")
-      .then(res => {
-        this.newslist = res.data;
-        // console.log(Object.keys(this.newslist));
-      });
-  }
-};
+<script src="../../lib/mui/js/test.js">
+//import sss from "../../lib/mui/js/test.js"
 </script>
+
 
 <style scoped>
 .mui-table-view li h2 {
