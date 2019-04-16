@@ -7,6 +7,7 @@ import cartTabbar from "./components/tabbar/shoppingcart.vue";
 import searchTabbar from "./components/tabbar/search.vue";
 import newList from "./components/news/newsList.vue";
 import newinfo from "./components/news/newinfo.vue";
+import photolist from "./components/photo/photolist.vue";
 // 3. 创建路由对象
 var router = new VueRouter({
   routes: [
@@ -17,7 +18,8 @@ var router = new VueRouter({
     { path: "/shoppingcart", component: cartTabbar },
     { path: "/search", component: searchTabbar },
     { path: "/home/newList", component: newList },
-    { path: "/home/newinfo/:id", component: newinfo }
+    { path: "/home/newinfo/:id", component: newinfo },
+    { path: "/home/photolist", component: photolist }
   ],
   linkExactActiveClass: "mui-active" //覆盖默认路由高亮的类（‘class’）
 });

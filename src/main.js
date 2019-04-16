@@ -21,12 +21,15 @@ import "./lib/mui/css/mui.min.css";
 import "./lib/mui/css/icons-extra.css";
 
 //按需导入Mint-UI中的组件
-import { Header, Swipe, SwipeItem, button } from "mint-ui";
-Vue.component(Header.name, Header);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(button.name, button);
-
+// import { Header, Swipe, SwipeItem, button, Lazyload } from "mint-ui";
+// Vue.component(Header.name, Header);
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(button.name, button);
+// Vue.use(Lazyload);
+//全部倒入
+import MintUI from "mint-ui";
+Vue.use(MintUI);
 //导入 router.js 路由模块
 import router from "./router";
 
