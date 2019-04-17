@@ -22,6 +22,7 @@
 
 ## 改造 tabbar 位 routerlink
 
+# 配置动态titie ,meta   使用插件 vue-meta
 ## 设置路由高亮
 
 ## 点击 tabbar 显示对应的路由组件
@@ -82,3 +83,5 @@ npm install axios
 
 1. 图片列表需要使用懒加载技术，我们可以使用 mint-ui 提供现成的组件“lazy-load”
 2. 渲染图片列表数据
+
+

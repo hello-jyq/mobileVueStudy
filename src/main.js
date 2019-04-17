@@ -9,7 +9,7 @@ Vue.use(VueRouter);
 //导入 时间插件 moment
 import moment from "moment";
 //自定义时间格式
-Vue.filter("dateString", function(dataStr, pattern = "YYYY-MM-DD HH:mm:ss") {
+Vue.filter("dateString", function (dataStr, pattern = "YYYY-MM-DD HH:mm:ss") {
   return moment(dataStr).format(pattern);
 });
 
@@ -31,8 +31,27 @@ import "./lib/mui/css/icons-extra.css";
 import MintUI from "mint-ui";
 Vue.use(MintUI);
 //导入 router.js 路由模块
-import router from "./router";
 
+import Meta from 'vue-meta'
+Vue.use(Meta)
+
+import router from "./router";
+// /* 路由发生变化修改页面title */
+// router.beforeEach((to, from, next) => {
+
+//   /* 路由发生变化修改页面meta */
+//   if (to.meta.content) {
+//     let head = document.getElementsByTagName('head');
+//     let meta = document.createElement('meta');
+//     meta.content = to.meta.content;
+//     head[0].appendChild(meta)
+//   }
+//   /* 路由发生变化修改页面title */
+//   if (to.meta.title) {
+//     document.title = to.meta.title
+//   }
+//   next()
+// })
 //导入APP根组件
 import app from "./App.vue";
 

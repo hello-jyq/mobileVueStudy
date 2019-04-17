@@ -56,6 +56,9 @@ export default {
       imgs: []
     };
   },
+  metaInfo: {
+    title: "首页"
+  },
   created() {
     this.$axios
       .get("https://wd7397433882arhwgr.wilddogio.com/banner.json")
